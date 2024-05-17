@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
     const navbarMobile = document.querySelector('.navbar-mobile');
+    const navListMobile = document.querySelector('.navlist-mobile');
+    const navItems = document.querySelectorAll('.nav-item');
     const hamburger = document.querySelector('.hamburger');
 
     hamburger.addEventListener('click', function() {
@@ -8,14 +10,24 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.toggle('active');
         if (navbarMobile.classList.contains('show')) {
             navbarMobile.classList.remove('show');
+            navListMobile.classList.remove('show');
             setTimeout(() => {
                 navbarMobile.style.display = 'none';
-            }, 300); // Tempo para a animação completar
+                navItems.forEach(item => item.style.transform = 'translateX(-100%)');
+            }, 300);
         } else {
             navbarMobile.style.display = 'block';
             setTimeout(() => {
                 navbarMobile.classList.add('show');
-            }, 10); // Pequeno atraso para permitir o repaint
+                setTimeout(() => {
+                    navListMobile.classList.add('show');
+                    navItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.style.transform = 'translateX(0)';
+                        }, index * 100); // Stagger the appearance of items
+                    });
+                }, 300); // Wait for navbar-mobile transition to complete
+            }, 10); 
         }
         updateHamburgerIcon(menuToggle.checked);
     });
@@ -37,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
 
 //CONFIGURAÇÕES DO CARROSSEL
 document.addEventListener('DOMContentLoaded', () => {
