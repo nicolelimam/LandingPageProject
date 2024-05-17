@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
     const navbarMobile = document.querySelector('.navbar-mobile');
     const navListMobile = document.querySelector('.navlist-mobile');
-    const navItems = document.querySelectorAll('.nav-item');
+    const navItems = document.querySelectorAll('.nav-item-mobile');
     const hamburger = document.querySelector('.hamburger');
 
     hamburger.addEventListener('click', function() {

@@ -105,7 +105,7 @@ header {
 }
 
 .navbar-container-mobile {
-    display: none; /* Apenas exibido em telas pequenas com media queries */
+    display: none; 
 }
 
 .navbar-mobile {
@@ -115,7 +115,7 @@ header {
     width: 100%;
     align-items: center;
     justify-content: center;
-    height: 17rem;
+    height: 18rem;
     background: var(--corPrincipal);
     z-index: 1;
     opacity: 0;
@@ -142,9 +142,46 @@ header {
     transform: translateX(0);
 }
 
-.nav-item {
+.nav-item-mobile {
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
+}
+
+.nav-item-mobile {
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.nav-item-mobile a {
+    position: relative;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--corBg);
+    text-decoration: none;
+    outline: none;
+    color: #b29049;
+    letter-spacing: 1px;
+    padding: 0 10px;
+}
+
+.nav-item-mobile a:hover {
+    color: #d1ad5f;
+}
+
+.nav-item-mobile a:after {
+    content: "";
+    position: absolute;
+    background-color: #d1ad5f;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+.nav-item-mobile a:hover:after {
+    width: 100%;
 }
 
 .banner {
